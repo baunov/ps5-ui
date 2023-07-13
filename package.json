@@ -1,0 +1,39 @@
+{
+  "name": "ps5",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "howler": "^2.2.3",
+    "nanoid": "^4.0.2",
+    "react": "^18.2.0",
+    "react-cross-fader": "^1.0.0",
+    "react-dom": "^18.2.0",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.7",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/shortid": "^0.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.4.25",
+    "sass": "^1.63.6",
+    "tailwindcss": "^3.3.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0"
+  }
+}
