@@ -1,42 +1,10 @@
 :root {
-  --card-size: 128px;
-  --active-card-size: 220px;
   --card-radius: 20px;
   --card-border-width: 2px;
   --card-border-gap: 5px;
 
   --card-border-size: calc(var(--active-card-size) + (var(--card-border-width) + var(--card-border-gap)) * 2);
   --card-border-offset: calc(0px - (var(--card-border-width) + var(--card-border-gap)));
-}
-
-@keyframes blinkLight {
-  0%{
-    background-position: 100% 100%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  70% {
-    opacity: 0.3;
-  }
-  100%{
-    background-position: 0 0;
-    opacity: 0;
-  }
-}
-
-@keyframes gradientOffset {
-  0%{
-    --a: 0deg;
-    background-position: 0 100%;
-  }
-  40% {
-    background-position: 0 0;
-  }
-  100%{
-    --a: 0deg; background-position: 0 100%;
-  }
 }
 
 @keyframes gameImgFadeIn {
@@ -67,6 +35,7 @@
   h1 {
     font-size: 3.2em;
     line-height: 1.1;
+    margin: 0;
   }
   @keyframes playFadeIn {
     from {
@@ -89,6 +58,12 @@
   --fade-out-animation: playFadeOut 0.1s ease;
 
   .play-btn {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    border: none;
     margin-top: 20px;
     width: 240px;
     height: 50px;
@@ -157,7 +132,26 @@
 }
 
 .game-card-title {
+  z-index: 50;
+  color: white;
+  font-size: 2rem;
+  white-space: nowrap;
+
   --fade-in-animation: testFadeIn 0.5s ease;
   --fade-out-animation: testFadeOut 0.5s ease;
+}
+
+.ps5-container {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.games-list-container {
+  z-index: 40;
 }
 

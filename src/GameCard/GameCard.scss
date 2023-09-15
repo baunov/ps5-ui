@@ -1,5 +1,11 @@
 .game-card {
 
+  transition: all 0.15s ease-out;
+  will-change: transform;
+
+  width: var(--card-size);
+  height: var(--card-size);
+
   @keyframes fadeInDelayed {
     0% {
       opacity: 0;
@@ -15,12 +21,31 @@
     }
   }
 
-  transition: all 0.15s ease-out;
-  will-change: transform;
+  @keyframes lightRay {
+    0%{
+      background-position: 100% 100%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.3;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100%{
+      background-position: 0 0;
+      opacity: 0;
+    }
+  }
 
-  width: var(--card-size);
-  height: var(--card-size);
-  position: relative;
+  .game-card-img {
+    position: absolute;
+    border-radius: 14%;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    z-index: 20;
+  }
 
   &.active {
     width: var(--active-card-size);
@@ -42,21 +67,25 @@
         position: absolute;
         background: linear-gradient(-45deg, rgba(255,255,255, 0) 0%, rgba(255,255,255, 0.5) 30%,  rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 70%);
         background-size: 200% 200%;
-        animation: blinkLight 3s ease forwards;
+        animation: lightRay 3s ease forwards;
       }
     }
   }
 
-  .game-card-img {
-    position: absolute;
-    border-radius: 14%;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    z-index: 20;
-  }
-
   .animated-border {
+
+    @keyframes gradientOffset {
+      0%{
+        background-position: 0 100%;
+      }
+      40% {
+        background-position: 0 0;
+      }
+      100%{
+        background-position: 0 100%;
+      }
+    }
+
     position: absolute;
     left: var(--card-border-offset);
     right: var(--card-border-offset);
@@ -71,5 +100,6 @@
     background-size: 200% 400%;
     z-index: 120;
     mask: url("public/border.svg") center / contain no-repeat;
+    -webkit-mask: url("public/border.svg") center / contain no-repeat;
   }
 }
