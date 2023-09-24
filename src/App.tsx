@@ -5,6 +5,7 @@ import {CrossFader} from 'react-cross-fader';
 import {GameCardsList} from "./GameCardsList/GameCardsList.tsx";
 import {ACTIVE_CARD_GAP, ACTIVE_CARD_SIZE, CARD_SIZE, CARDS_OFFSET_X, CARDS_OFFSET_Y} from "./constants.ts";
 import {games} from "./games.ts";
+import {usePrevious} from "./hooks/use-previous.ts";
 
 const navigateSound = new Howl({
     src: ['/sounds/menu.mp3'],
@@ -24,6 +25,7 @@ const backgroundMusic = new Howl({
 
 function App() {
     const [active, setActive] = useState(0);
+    const prevActive = usePrevious(active);
 
     useEffect(() => {
         loadSound.play();
@@ -40,7 +42,7 @@ function App() {
 
     const textOffsetX = CARDS_OFFSET_X + ACTIVE_CARD_SIZE + ACTIVE_CARD_GAP + 12;
     const textOffsetY = ACTIVE_CARD_SIZE * 0.78 + CARDS_OFFSET_Y;
-
+    const isNext = active > (prevActive ?? 0);
     return (
         <div className='ps5-container' style={
             {
@@ -48,7 +50,7 @@ function App() {
                 ['--card-size']: `${CARD_SIZE}px`,
             } as Record<string, string>
         }>
-            <CrossFader className='game-bg-container'>
+            <CrossFader destroyOnFadeOutComplete={false} className={'game-bg-container ' + (isNext ? 'next' : 'prev')}>
                 <div className='game-bg' style={{backgroundImage: `url("${games[active].bg ?? games[active].logo}")`}}>
                 </div>
             </CrossFader>
