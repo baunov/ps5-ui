@@ -97,7 +97,7 @@
     animation: fadeInDelayed 0.3s ease-out forwards, gradientOffset 24s linear infinite;
     background-size: 200% 400%;
     z-index: 120;
-    mask: url("public/border.svg") center / contain no-repeat;
-    -webkit-mask: url("public/border.svg") center / contain no-repeat;
+    mask: url("/border.svg") center / contain no-repeat;
+    -webkit-mask: url("/border.svg") center / contain no-repeat;
   }
 }
