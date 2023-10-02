@@ -1,11 +1,11 @@
 import {ForwardedRef, forwardRef, HTMLAttributes} from 'react';
 import './GameCard.scss';
+import {Game} from "../types/game.ts";
 
-interface GameCardProps extends HTMLAttributes<HTMLDivElement> {
-    logo: string;
-    name: string;
+interface GameCardProps extends HTMLAttributes<HTMLDivElement>, Pick<Game, 'logo' | 'name'> {
     active?: boolean;
 }
+
 export const GameCard = forwardRef(
     function GameCard({logo, name, active, ...props}: GameCardProps, ref: ForwardedRef<HTMLDivElement>) {
     return (

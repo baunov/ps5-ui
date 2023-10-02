@@ -56,7 +56,7 @@ function App() {
             </CrossFader>
 
             <div className='games-list-container'>
-                <GameCardsList games={games} activeIndex={active} navigate={navigate}/>
+                <GameCardsList games={games} activeIndex={active} onActiveIndexChange={navigate}/>
             </div>
 
             <div className='game-card-title'
@@ -64,14 +64,10 @@ function App() {
                 <CrossFader><span>{games[active].name}</span></CrossFader>
             </div>
 
-            <div className='play-container'>
-                <CrossFader>
-                    <div>
-                        <h1>{games[active].name}</h1>
-                        <button className='play-btn'>Play</button>
-                    </div>
-                </CrossFader>
-            </div>
+            <CrossFader className='play-container' style={{left: `${CARDS_OFFSET_X * 1.2}px`}}>
+                <h1>{games[active].name}</h1>
+                <button className='play-btn'>Play</button>
+            </CrossFader>
 
         </div>
     );
